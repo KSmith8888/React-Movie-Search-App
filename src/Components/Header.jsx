@@ -4,10 +4,7 @@ function Header(props) {
     return (
         <header className="header-section">
             <h1 className="main-heading">React Movie App</h1>
-            <Search
-                setMovieData={props.setMovieData}
-                movieData={props.movieData}
-            />
+            <Search setMovieData={props.setMovieData} />
         </header>
     );
 }
