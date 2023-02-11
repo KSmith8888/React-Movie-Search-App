@@ -5,12 +5,12 @@ import { Movie } from "./Movie";
 import { Footer } from "./Footer";
 
 function App() {
-    const [search, setSearch] = useState("");
     const [movies, setMovies] = useState([]);
-    const [movieData, setMovieData] = useState([]);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:3000/movies/batman")
+        fetch(
+            "https://api-proxy-server-production-dfe7.up.railway.app/movies/batman"
+        )
             .then((response) => {
                 return response.json();
             })
@@ -31,12 +31,18 @@ function App() {
             })
             .catch((err) => {
                 console.error(err);
+                setMovies(
+                    <h2 className="error-text">
+                        Sorry, there has been an error getting the requested
+                        data. Please try again later.
+                    </h2>
+                );
             });
     }, []);
 
     return (
         <div className="container">
-            <Header setMovieData={setMovieData} movieData={movieData} />
+            <Header setMovieData={setMovies} />
             <main className="results-container">{movies}</main>
             <Footer />
         </div>
