@@ -9,13 +9,12 @@ function App() {
 
     useEffect(() => {
         fetch(
-            "https://api-proxy-server-production-dfe7.up.railway.app/movies/batman"
+            "https://api-proxy-server-production-dfe7.up.railway.app/movies/search/batman"
         )
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
-                console.log(data);
                 setMovies(
                     data.Search.map((film) => {
                         return (
@@ -24,6 +23,7 @@ function App() {
                                 title={film.Title}
                                 year={film.Year}
                                 image={film.Poster}
+                                id={film.imdbID}
                             />
                         );
                     })
