@@ -15,10 +15,18 @@ img {
     max-width: 100%;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .header-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     background-color: rgb(110, 109, 128);
     border-bottom: 2px solid rgb(20, 20, 41);
     box-shadow: 2px 2px 2px black;
@@ -52,7 +60,9 @@ img {
     font-size: 1.1rem;
 }
 
-.search-button {
+.search-button,
+.details-button,
+.movie-details-close-btn {
     background-color: rgb(199, 183, 183);
     font-size: 1rem;
     font-weight: 700;
@@ -64,28 +74,45 @@ img {
 }
 
 .search-button:focus,
-.search-button:hover {
+.search-button:hover,
+.details-button:focus,
+.details-button:hover,
+.movie-details-close-btn:focus,
+.movie-details-close-btn:hover {
     background-color: rgb(170, 155, 155);
 }
 
 .results-container {
-    margin: 1em;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1em;
 }
 
 .movie-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     background-color: rgb(126, 125, 139);
-    width: 12em;
+    width: 18%;
     border: 1px solid black;
     padding: 1em;
     border-radius: 10px;
     text-align: center;
 }
 
+.movie-image {
+    margin-bottom: 1em;
+}
+
 .movie-title {
-    margin: 0;
+    width: 90%;
+    margin: 0 auto;
+    word-wrap: break-word;
 }
 
 .movie-year {
@@ -96,12 +123,48 @@ img {
 .footer-section {
     margin: 1em;
     padding: 1em 0;
+    width: 100%;
     display: flex;
     justify-content: center;
+    color: #fff;
 }
 
 .error-text {
     color: rgb(165, 6, 6);
     background-color: #fff;
     padding: 1em;
+}
+
+.movie-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-details-info {
+    padding: 0 1em;
+}
+
+.movie-details-modal[open] {
+    width: 50vw;
+    background: radial-gradient(rgb(17, 17, 43), rgb(14, 14, 43));
+    color: #fff;
+    border: 3px solid #fff;
+    position: fixed;
+    top: 5em;
+    margin: 0 auto;
+}
+
+.movie-details-image {
+    width: 50%;
+}
+
+@media (max-width: 950px) {
+    .movie-details-modal[open] {
+        width: 90vw;
+        top: 1em;
+    }
+    .movie-container {
+        width: 45%;
+    }
 }
