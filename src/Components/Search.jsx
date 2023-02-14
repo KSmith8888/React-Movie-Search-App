@@ -7,7 +7,7 @@ function Search(props) {
     function handleSubmit(event) {
         event.preventDefault();
         fetch(
-            `https://api-proxy-server-production-dfe7.up.railway.app/movies/${search}`
+            `https://api-proxy-server-production-dfe7.up.railway.app/movies/search/${search}`
         )
             .then((response) => {
                 return response.json();
