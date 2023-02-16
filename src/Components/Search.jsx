@@ -53,6 +53,7 @@ function Search(props) {
                 id="search-input"
                 type="search"
                 value={search}
+                placeholder={"Batman"}
                 onChange={(e) => {
                     setSearch(e.target.value);
                 }}
